@@ -127,7 +127,7 @@ export const Todo = () => {
           </div>
           <div className="flex items-center gap-1">
             <FunnelIcon />
-            <select className="border border-gray-200 rounded-sm outline-0 py-2 px-1.5 md:p-1.5 bg-white text-[12px] md:text-[14px]">
+            <select className="border border-gray-200 rounded-sm outline-0  py-2 px-1.5 md:py-2 md:px-3  bg-white text-[12px] md:text-[14px]">
               <option>All categories</option>
               {categories.map((item) => (
                 <option key={item.id} value={item.name}>
