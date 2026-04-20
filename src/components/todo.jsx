@@ -38,15 +38,25 @@ export const Todo = () => {
   ];
 
   const [input, setInput] = useState("");
-  const { list, addList, deleteList, toggleTodo, setSearchTerm, searchTerm } =
-    useTodoStore();
+  const {
+    list,
+    addList,
+    deleteList,
+    toggleTodo,
+    setSearchTerm,
+    searchTerm,
+    selectCategory,
+    setSelectCategory,
+  } = useTodoStore();
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedPriority, setSelectedPriority] = useState("");
-
-  const displayList = list.filter((item) =>
-    item.input.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
-
+  const displayList = list
+    .filter((item) =>
+      selectCategory === "all" ? true : item.category === selectCategory,
+    )
+    .filter((item) =>
+      item.input.toLowerCase().includes(searchTerm.toLowerCase()),
+    );
   return (
     <div className="box-border bg-blue-50 min-h-screen flex px-4 pt-7 items-center flex-col">
       <div className="mb-8">
@@ -127,8 +137,11 @@ export const Todo = () => {
           </div>
           <div className="flex items-center gap-1">
             <FunnelIcon />
-            <select className="appearance-none border border-gray-200 rounded-sm outline-0 py-1.5 px-1.5 md:py-2 md:px-3  bg-white text-[12px] md:text-[14px]">
-              <option>All categories</option>
+            <select
+              className="appearance-none border border-gray-200 rounded-sm outline-0 py-1.5 px-1.5 md:py-2 md:px-3  bg-white text-[12px] md:text-[14px]"
+              onChange={(event) => setSelectCategory(event.target.value)}
+            >
+              <option value="all">All categories</option>
               {categories.map((item) => (
                 <option key={item.id} value={item.name}>
                   {item.name}

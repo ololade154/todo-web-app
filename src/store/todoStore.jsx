@@ -8,6 +8,7 @@ export const useTodoStore = create(
       list: [],
       filteredList: [],
       searchTerm: "",
+      selectCategory: "all",
 
       addList: (input, category, priority) =>
         set((state) => ({
@@ -35,6 +36,7 @@ export const useTodoStore = create(
           ),
         })),
       setSearchTerm: (value) => set({ searchTerm: value }),
+      setSelectCategory: (id) => set({ selectCategory: id }),
     }),
 
     {
