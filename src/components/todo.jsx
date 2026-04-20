@@ -48,7 +48,7 @@ export const Todo = () => {
   );
 
   return (
-    <div className="bg-blue-50 min-h-screen flex px-4 pt-7 items-center flex-col">
+    <div className="box-border bg-blue-50 min-h-screen flex px-4 pt-7 items-center flex-col">
       <div className="mb-8">
         <h1 className="text-blue-700 text-[35px] font-bold">My Todo App</h1>
         <p className="text-[15px] text-center text-gray-500">
@@ -80,11 +80,11 @@ export const Todo = () => {
         </div>
 
         {/* CATEGORY + PRIORITY */}
-        <div className="mt-4 flex items-center gap-2 md:gap-x-4 text-[12px] md:text-[14px]">
+        <div className="mt-4 flex items-center gap-x-6 md:gap-x-4 text-[12px] md:text-[14px]">
           <div className="flex items-center gap-1">
             <span>Category</span>
             <select
-              className="border border-gray-200 rounded-sm outline-0 md:p-1.5 p-1 "
+              className="appearance-none border border-gray-200 rounded-sm outline-0 md:p-1.5 p-1 "
               onChange={(e) => setSelectedCategory(e.target.value)}
             >
               <option value="">Select category</option>
@@ -99,7 +99,7 @@ export const Todo = () => {
           <div className="flex items-center gap-1">
             <span>Priority</span>
             <select
-              className="border border-gray-200 rounded-sm outline-0 md:p-1.5 p-1"
+              className="appearance-none border border-gray-200 rounded-sm outline-0 md:p-1.5 p-1"
               onChange={(e) => setSelectedPriority(e.target.value)}
             >
               <option value="">Select priority</option>
@@ -118,7 +118,7 @@ export const Todo = () => {
             <input
               type="text"
               placeholder="Search task...."
-              className="border-0 w-full py-1.5 pl-8 pr-2 md:py-2 md:pl-10 md:pr-4 rounded-sm bg-gray-200 outline-0 text-[16px] md:text-[12px]"
+              className="border-0 w-full py-1 pl-8 pr-2 md:py-2 md:pl-10 md:pr-4 rounded-sm bg-gray-200 outline-0 text-[16px] md:text-[12px]"
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
@@ -127,7 +127,7 @@ export const Todo = () => {
           </div>
           <div className="flex items-center gap-1">
             <FunnelIcon />
-            <select className="border border-gray-200 rounded-sm outline-0  py-2 px-1.5 md:py-2 md:px-3  bg-white text-[12px] md:text-[14px]">
+            <select className="appearance-none border border-gray-200 rounded-sm outline-0 py-1.5 px-1.5 md:py-2 md:px-3  bg-white text-[12px] md:text-[14px]">
               <option>All categories</option>
               {categories.map((item) => (
                 <option key={item.id} value={item.name}>
